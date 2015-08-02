@@ -1,0 +1,4 @@
+'.source.cbot':
+  'editor':
+    'softTabs': false
+    'tabLength': 4

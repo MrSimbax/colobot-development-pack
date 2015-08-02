@@ -1,0 +1,24 @@
+{
+  "name": "colobot-development-pack",
+  "version": "0.0.0",
+  "description": "Package for Colobot game developers and modders. See http://colobot.info/",
+  "keywords": [
+      "colobot",
+      "satcom",
+      "scene",
+      "cbot",
+      "syntax"
+  ],
+  "activationHooks": [
+    "language-satcom:grammar-used",
+    "language-cbot:grammar-used",
+    "language-scene:grammar-used"
+  ],
+  "repository": "https://github.com/MrSimbax/colobot-development-pack",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

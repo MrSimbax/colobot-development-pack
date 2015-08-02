@@ -1,0 +1,65 @@
+'scopeName': 'source.scene'
+'fileTypes': [
+  'scene'
+]
+'firstLineMatch': '^Title\\..+ text=".+".*$'
+'name': 'Colobot scene'
+'patterns': [
+  { 'include': '#command' }
+  { 'include': '#parameter' }
+  { 'include': '#constant' }
+  { 'include': '#escaped-char' }
+  { 'include': '#inline-comment' }
+  { 'include': '#string' }
+  { 'include': '#number' }
+  { 'include': '#operator' }
+]
+
+'repository':
+  'command': {
+    'match': '^(Title|Resume|Instructions|Satellite|Loading|(Soluce|Help|Ending)File|(Script|Frontsize|Foreground)Name|Background|Terrain(Relief|Resource|Water|InitTexture|Wind|Generate|Blitz|Lava|Cloud|Material|Init|Level|Create)|(Create|Begin)Object|MessageDelay|Audio|(Ambient|Fog|Vehicle|Greenery|Insect|Water|Map)Color|DeepView|FogStart|CreateFog|SecondTexture|Planet|GroundSpot|MaxFlyingHeight|NewScript|Enable(Build|Research)|DoneResearch|EndMissionTake|Camera|CreateLight|CreateSpot|MapZoom)\\b'
+    'name': 'entity.name.function'
+  }
+  'parameter': {
+    'match': '\\b(name|text|resume|image|d[xy]|table|pos|dir|type|power|script\\d+|factor|track|air|water|color|up|down|cloud(Up|Down)|rank|mode|dim|speed|uv[12]|vision|depth|hard|sleep|delay|magnetic|level|move[XY]|brightness|id|u|v|left|right|min|max|slope|freq|radius|height|run|select|range|shield|magnifyDamage|proxy(Activate|Distance)|selectable|cmdline|auto(Value[0-5]|Type|String)|floor|dist|lost|eye|lookat|win|reset|trainer|scriptRunnable\\d+|option|smooth)\\b'
+    'name': 'variable'
+    'patterns': [
+      { 'include': '#operator' }
+    ]
+  }
+  'constant': {
+    'match': '\\b(Me|SpaceShip|(Practice|Target)Bot|(Wheeled|Tracked|Winged|Legged)(Grabber|(Orga)?Shooter|Sniffer)|Thumper|PhazerShooter|Recycler|Shielder|Subber|DDerrick|BotFactory|PowerStation|Converter|RepairCenter|DefenseTower|AlienNest|ResearchCenter|RadarStation|ExchangePost|PowerPlant|AutoLab|NuclearPlant|PPowerCaptor|Vault|(Start|Goal)Area|Target[12]|Houston|(Titanium|Uranium)Ore|Titanium|PowerCell|NuclearCell|OrgaMatter|BlackBox|Key[A-D]|TNT|Greenery[1]?[0-9]|Tree[0-3]|Mushroom[12]|MegaStalk[0-5]|Quarts[0-3]|Barrier[01]|Apollo(LEM|Jeep|Flag|Module|Antenna)|WreckBot(w[12]|t[12]|r[12])|Ruin(BotFactory|Door|Support|Radar|Convert|BaseCamp|HeadCamp)|Alien(Queen|Egg|Ant|Spider|Wasp|Worm)|(Power|Titanium|Uranium|Key[A-D])Spot|WayPoint|(Blue|Red|Green|Yellow|Violet)Flag|Mine|Portico|Bag|Home|Tech|Firework|Terrain|Object|Quartz|TRACKER|WINGER|THUMPER|SHOOTER|TOWER|PHAZER|SHIELDER|ATOMIC|iPAW|iGUN|RECYCLER|SUBBER|SNIFFER)\\b'
+    'name': 'constant'
+  }
+  'escaped-char': {
+    'match': '\\\\\\\\'
+    'name': 'constant.character.escape'
+  }
+  'inline-comment': {
+    'begin': '//'
+    'end': '$'
+    'name': 'comment'
+  }
+  'string': {
+    'begin': '"'
+    'end': '"'
+    'name': 'string'
+    'patterns': [
+      { 'include': '#escaped-char' }
+      { 'include': '#special-variables' }
+    ]
+  }
+  'special-variables': {
+    'match': '%(user|lvl|lng)%'
+    'name': 'constant.other.symbol'
+  }
+  'number': {
+    'match': '([-+]?[0-9]*\\.?[0-9]+)\\b'
+    'captures':
+      '1':
+        'name': 'constant.numeric'
+  }
+  'operator': {
+    'match': '[=\\.;]'
+    'name': 'constant.other.symbol'
+  }

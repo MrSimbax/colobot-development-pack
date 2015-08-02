@@ -1,0 +1,101 @@
+'scopeName': 'source.satcom'
+'fileTypes': [
+  'satcom'
+]
+'firstLineMatch': '^\\\\b;.+$'
+'name': 'SatCom'
+'patterns': [
+  { 'include': '#escaped-char' }
+  # One liners
+  { 'include': '#header' }
+  { 'include': '#line-background' }
+  # Formatting
+  { 'include': '#background' }
+  { 'include': '#monospaced' }
+  # Special tags
+  { 'include': '#link' }
+  { 'include': '#keyboard-key' }
+  {
+    'match': '\\\\image (.+) (\\d+ \\d+);'
+    'captures':
+      '1':
+        'name': 'string.other.link'
+        'patterns': [
+          { 'include': 'escaped-char' }
+        ]
+      '2':
+        'name': 'constant.numeric'
+    'name': 'entity.name.function'
+  }
+]
+
+'repository':
+  'background': {
+      'begin': '\\\\(token|type|const|key);'
+      'end': '(.+)\\\\norm;'
+      'endCaptures':
+        '1':
+          'name': 'meta.tag'
+          'patterns': [
+            { 'include': '#link' }
+            { 'include': '#keyboard-key' }
+            { 'include': '#monospaced' }
+            { 'include': '#escaped-char' }
+          ]
+      'name': 'keyword.control'
+  }
+  'link': {
+      'match': '\\\\l;([^\\\\]+)\\\\u ([^;]+);'
+      'captures':
+        '1':
+          'name': 'meta.tag'
+        '2':
+          'name': 'string.other.link'
+      'name': 'meta.link'
+  }
+  'header': {
+    'begin': '^\\\\(b|t);'
+    'end': '$'
+    'name': 'punctuation.definition.heading'
+    'patterns': [
+      { 'include': '#background' }
+      { 'include': '#link' }
+      { 'include': '#keyboard-key' }
+      { 'include': '#monospaced' }
+      { 'include': '#escaped-char' }
+    ]
+  }
+  'line-background': {
+    'begin': '^\\\\(s|tab);'
+    'end': '(.+)$'
+    'endCaptures':
+      '1':
+        'patterns': [
+          { 'include': '#background' }
+          { 'include': '#link' }
+          { 'include': '#keyboard-key' }
+          { 'include': '#monospaced' }
+          { 'include': '#escaped-char' }
+        ]
+    'name': 'meta.separator'
+  }
+  'keyboard-key': {
+    'match': '\\\\key (Left|Right|Up|Down|Gup|Gdown|Camera|Desel|Action|Near|Away|Next|Human|Quit|Help|Prog|Cbot|Visit|speed10|speed15|speed20);'
+    'name': 'meta.link'
+  }
+  'escaped-char': {
+    'match': '\\\\\\\\'
+    'name': 'constant.character.escape.backslash'
+  }
+  'monospaced': {
+    'begin': '\\\\c;'
+    'end': '\\\\n;'
+    'name': 'string'
+    'patterns': [
+      { 'include': '#background' }
+      { 'include': '#link' }
+      { 'include': '#line-background' }
+      { 'include': '#keyboard-key' }
+      { 'include': '#escaped-char' }
+    ]
+  }

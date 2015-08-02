@@ -1,0 +1,48 @@
+'scopeName': 'source.cbot'
+'fileTypes': [
+  'cbot'
+]
+'firstLineMatch': '^extern void object::.+(.*).*$'
+'name': 'CBOT'
+'patterns': [
+  { 'include': '#instruction' }
+  { 'include': '#type' }
+  { 'include': '#constant' }
+  { 'include': '#escaped-char' }
+  { 'include': '#inline-comment' }
+  { 'include': '#block-comment' }
+  { 'include': '#string' }
+]
+
+'repository':
+  'instruction': {
+    'match': '(if|else|for|while|do|break|continue|return|sizeof|sin|cos|tan|asin|acos|atan|atan2|sqrt|pow|rand|abs|floor|ceil|round|trunc|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|direction|distance|distance2d|space|flatspace|flatground|canbuild|canresearch|researched|buildingenabled|build|wait|move|turn|goto|grab|drop|sniff|receive|send|deleteinfo|testinfo|thump|recycle|shield|fire|antfire|aim|motor|jet|topo|message|abstime|strlen|strleft|strright|strmid|strval|strfind|strlower|strupper|open|close|writeln|readln|eof|deletefile|openfile|pendown|penup|pencolor|penwidth|extern|class|static|public|private|synchronized|new|this|switch|case|default|retobjectbyid|ismovie|ipf|camerafocus)'
+    'name': 'entity.name.function.cbot'
+  }
+  'type': {
+    'match': '(void|int|float|bool(ean)?|string|point|object|file)'
+    'name': 'storage.type.cbot'
+  }
+  'constant': {
+    'match': '(Portico|SpaceShip|Derrick|BotFactory|PowerStation|Converter|RepairCenter|Destroyer|DefenseTower|AlienNest|ResearchCenter|RadarStation|ExchangePost|PowerPlant|AutoLab|NuclearPlant|PowerCaptor|Vault|Houston|Target1|Target2|StartArea|GoalArea|TitaniumOre|UraniumOre|Titanium|PowerCell|NuclearCell|OrgaMatter|BlackBox|KeyA|KeyB|KeyC|KeyD|TNT|Scrap|Mine|Barrier|WayPoint|BlueFlag|RedFlag|GreenFlag|YellowFlag|VioletFlag|PowerSpot|TitaniumSpot|UraniumSpot|KeyASpot|KeyBSpot|KeyCSpot|KeyDSpot|PracticeBot|(Wheeled|Tracked|Winged|Legged)(Grabber|Shooter|OrgaShooter|Sniffer)|PhazerShooter|Thumper|Recycler|Shielder|Subber|TargetBot|Scribbler|Me|Alien(Queen|Egg|Ant|Spider|Wasp|Worm)|Wreck|FuelCell(Plant)?|Platinum(Ore|Spot)|InFront|Behind|EnergyCell|Display(Error|Warning|Info|Message)|Filter(None|OnlyLanding|OnlyFlying|Friendly|Enemy|Neutral)|Explosion(None|Bang|Burn|Water)|Result(NotEnded|Lost|LostQuick|Win)|Build(BotFactory|Derrick|Converter|RadarStation|PowerPlant|NuclearPlant|PowerStation|RepairCenter|DefenseTower|ResearchCenter|AutoLab|PowerCaptor|ExchangePost|Destroyer)|FlatGround|UseFlags|Research(Tracked|Winged|Shooter|DefenseTower|NuclearPlant|Thumper|Shielder|PhazerShooter|Legged|OrgaShooter|Recycler|Subber|Sniffer)|PolskiPortalColobota|Any|null|true|false|nan)'
+    'name': 'constant'
+  }
+  'escaped-char': {
+    'match': '\\\\\\\\'
+    'name': 'none'
+  }
+  'inline-comment': {
+    'begin': '//'
+    'end': '$'
+    'name': 'none'
+  }
+  'block-comment': {
+    'begin': '/\\*'
+    'end': '\\*/'
+    'name': 'none'
+  }
+  'string': {
+    'begin': '"'
+    'end': '"'
+    'name': 'string'
+  }
