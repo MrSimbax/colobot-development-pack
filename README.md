@@ -23,4 +23,4 @@ They may be or not be implemented in the future.
 
 # Bugs and feature requests
 
-View and/or create [issues]() on GitHub.
+View and/or create [issues](https://github.com/MrSimbax/colobot-development-pack/issues) on GitHub.
