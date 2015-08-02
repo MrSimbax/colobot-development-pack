@@ -2,6 +2,8 @@
 
 [Atom](http://atom.io) package for Colobot developers and modders. See http://colobot.info for more info.
 
+![](http://i.imgur.com/Sl1bE1U.png)
+
 # Current features
 
 * Syntax highlighting for CBOT source code
