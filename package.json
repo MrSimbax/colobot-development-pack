@@ -9,11 +9,6 @@
       "cbot",
       "syntax"
   ],
-  "activationHooks": [
-    "language-satcom:grammar-used",
-    "language-cbot:grammar-used",
-    "language-scene:grammar-used"
-  ],
   "repository": "https://github.com/MrSimbax/colobot-development-pack",
   "license": "MIT",
   "engines": {
