@@ -44,5 +44,5 @@
   'string': {
     'begin': '"'
     'end': '"'
-    'name': 'string'
+    'name': 'none'
   }
