@@ -1,0 +1,18 @@
+@import "./mixins.less";
+
+.source.cbot {
+  .constant {
+      color: #000000;
+      .gradient(#ffffff, #E4C1BE);
+  }
+  .entity {
+    &.name.function {
+      color: #000000;
+      .gradient(#ffffff, #FEEBD2);
+    }
+  }
+  .storage.type {
+    color: #000000;
+    .gradient(#ffffff, #BEDCBE);
+  }
+}
