@@ -1,19 +1,18 @@
 {
   "name": "colobot-development-pack",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Package for Colobot game developers and modders. See http://colobot.info/",
   "keywords": [
-      "colobot",
-      "satcom",
-      "scene",
-      "cbot",
-      "syntax"
+    "colobot",
+    "satcom",
+    "scene",
+    "cbot",
+    "syntax"
   ],
   "repository": "https://github.com/MrSimbax/colobot-development-pack",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
