@@ -2,7 +2,7 @@
 
 [Atom](http://atom.io) package for Colobot developers and modders. See http://colobot.info for more info.
 
-![](syntax_sceenshot.png)
+![](syntax_screenshot.png)
 
 # Current features
 
