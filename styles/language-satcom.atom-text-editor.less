@@ -1,0 +1,51 @@
+@import "./mixins.less";
+
+.source.satcom {
+  .punctuation.definition.heading {
+    color: #000000;
+    background-color: #8C8360;
+  }
+  .meta {
+    &.tag {
+      color: #000000;
+    }
+    &.link {
+      color: #6868E7;
+      background-color: #D2D2D2;
+      text-decoration: underline;
+    }
+    &.separator {
+      color: #000000;
+      background-color: #FEDB54;
+    }
+  }
+  .string {
+    color: #ec0043;
+    &.other.link {
+      color: #3e3e89;
+    }
+  }
+  .keyword {
+    &.token {
+      color: #000000;
+      .gradient(#ffffff, #FEEBD2);
+    }
+    &.type {
+      color: #000000;
+      .gradient(#ffffff, #BEDCBE);
+    }
+    &.const {
+      color: #000000;
+      .gradient(#ffffff, #E4C1BE);
+    }
+    &.key {
+      color: #000000;
+      .gradient(#ffffff, #C6C6C6);
+    }
+  }
+  .constant {
+    &.numeric {
+      color: #001cc9;
+    }
+  }
+}

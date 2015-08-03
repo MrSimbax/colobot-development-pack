@@ -15,8 +15,9 @@
   # Special tags
   { 'include': '#link' }
   { 'include': '#keyboard-key' }
+  { 'include': '#button' }
   {
-    'match': '\\\\image (.+) (\\d+ \\d+);'
+    'match': '\\\\image ([^\\s]+) (\\d+ \\d+);'
     'captures':
       '1':
         'name': 'string.other.link.satcom'
@@ -25,30 +26,81 @@
         ]
       '2':
         'name': 'constant.numeric.satcom'
-    'name': 'entity.name.function.satcom'
+    'name': 'meta.link.satcom'
   }
 ]
 
 'repository':
-  'background': {
-      'begin': '\\\\(token|type|const|key);'
-      'end': '(.+)\\\\norm;'
-      'endCaptures':
+  'background':
+      'patterns': [
+        {
+            'begin': '\\\\token;'
+            'end': '(.+)\\\\norm;'
+            'endCaptures':
+              '1':
+                'name': 'meta.tag.on-background.satcom'
+                'patterns': [
+                  { 'include': '#link' }
+                  { 'include': '#keyboard-key' }
+                  { 'include': '#monospaced' }
+                  { 'include': '#escaped-char' }
+                ]
+            'name': 'keyword.token.satcom'
+        }
+        {
+            'begin': '\\\\type;'
+            'end': '(.+)\\\\norm;'
+            'endCaptures':
+              '1':
+                'name': 'meta.tag.on-background.satcom'
+                'patterns': [
+                  { 'include': '#link' }
+                  { 'include': '#keyboard-key' }
+                  { 'include': '#monospaced' }
+                  { 'include': '#escaped-char' }
+                ]
+            'name': 'keyword.type.satcom'
+        }
+        {
+            'begin': '\\\\const;'
+            'end': '(.+)\\\\norm;'
+            'endCaptures':
+              '1':
+                'name': 'meta.tag.on-background.satcom'
+                'patterns': [
+                  { 'include': '#link' }
+                  { 'include': '#keyboard-key' }
+                  { 'include': '#monospaced' }
+                  { 'include': '#escaped-char' }
+                ]
+            'name': 'keyword.const.satcom'
+        }
+        {
+            'begin': '\\\\key;'
+            'end': '(.+)\\\\norm;'
+            'endCaptures':
+              '1':
+                'name': 'meta.tag.on-background.satcom'
+                'patterns': [
+                  { 'include': '#link' }
+                  { 'include': '#keyboard-key' }
+                  { 'include': '#monospaced' }
+                  { 'include': '#escaped-char' }
+                ]
+            'name': 'keyword.key.satcom'
+        }
+      ]
+  'link': {
+      'match': '\\\\l;(.+?)\\\\u (.+?);'
+      'captures':
         '1':
           'name': 'meta.tag.satcom'
           'patterns': [
-            { 'include': '#link' }
+            { 'include': '#background' }
             { 'include': '#keyboard-key' }
             { 'include': '#monospaced' }
             { 'include': '#escaped-char' }
           ]
-      'name': 'keyword.control.satcom'
-  }
-  'link': {
-      'match': '\\\\l;([^\\\\]+)\\\\u ([^;]+);'
-      'captures':
-        '1':
-          'name': 'meta.tag.satcom'
         '2':
           'name': 'string.other.link.satcom'
       'name': 'meta.link.satcom'
@@ -63,6 +115,7 @@
       { 'include': '#keyboard-key' }
       { 'include': '#monospaced' }
       { 'include': '#escaped-char' }
+      { 'include': '#button' }
     ]
   }
   'line-background': {
@@ -81,6 +134,13 @@
   }
   'keyboard-key': {
     'match': '\\\\key (Left|Right|Up|Down|Gup|Gdown|Camera|Desel|Action|Near|Away|Next|Human|Quit|Help|Prog|Cbot|Visit|speed10|speed15|speed20);'
+    'name': 'string.satcom'
+  }
+  'button': {
+    'match': '\\\\button (\\d+);'
+    'captures':
+      '1':
+        'name': 'constant.numeric'
     'name': 'meta.link.satcom'
   }
   'escaped-char': {
