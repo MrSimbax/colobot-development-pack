@@ -19,13 +19,13 @@
     'match': '\\\\image (.+) (\\d+ \\d+);'
     'captures':
       '1':
-        'name': 'string.other.link'
+        'name': 'string.other.link.satcom'
         'patterns': [
           { 'include': 'escaped-char' }
         ]
       '2':
-        'name': 'constant.numeric'
-    'name': 'entity.name.function'
+        'name': 'constant.numeric.satcom'
+    'name': 'entity.name.function.satcom'
   }
 ]
 
@@ -35,28 +35,28 @@
       'end': '(.+)\\\\norm;'
       'endCaptures':
         '1':
-          'name': 'meta.tag'
+          'name': 'meta.tag.satcom'
           'patterns': [
             { 'include': '#link' }
             { 'include': '#keyboard-key' }
             { 'include': '#monospaced' }
             { 'include': '#escaped-char' }
           ]
-      'name': 'keyword.control'
+      'name': 'keyword.control.satcom'
   }
   'link': {
       'match': '\\\\l;([^\\\\]+)\\\\u ([^;]+);'
       'captures':
         '1':
-          'name': 'meta.tag'
+          'name': 'meta.tag.satcom'
         '2':
-          'name': 'string.other.link'
-      'name': 'meta.link'
+          'name': 'string.other.link.satcom'
+      'name': 'meta.link.satcom'
   }
   'header': {
     'begin': '^\\\\(b|t);'
     'end': '$'
-    'name': 'punctuation.definition.heading'
+    'name': 'punctuation.definition.heading.satcom'
     'patterns': [
       { 'include': '#background' }
       { 'include': '#link' }
@@ -77,20 +77,20 @@
           { 'include': '#monospaced' }
           { 'include': '#escaped-char' }
         ]
-    'name': 'meta.separator'
+    'name': 'meta.separator.satcom'
   }
   'keyboard-key': {
     'match': '\\\\key (Left|Right|Up|Down|Gup|Gdown|Camera|Desel|Action|Near|Away|Next|Human|Quit|Help|Prog|Cbot|Visit|speed10|speed15|speed20);'
-    'name': 'meta.link'
+    'name': 'meta.link.satcom'
   }
   'escaped-char': {
     'match': '\\\\\\\\'
-    'name': 'constant.character.escape.backslash'
+    'name': 'constant.character.escape.backslash.satcom'
   }
   'monospaced': {
     'begin': '\\\\c;'
     'end': '\\\\n;'
-    'name': 'string'
+    'name': 'string.satcom'
     'patterns': [
       { 'include': '#background' }
       { 'include': '#link' }
