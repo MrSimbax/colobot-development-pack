@@ -1,3 +1,7 @@
+## 0.1.3 - Patch syntax highlighting
+* Add new #Include keyword
+* Fix type=Quartz not being highlighted
+
 ## 0.1.2 - Patch syntax highlighting
 * CBOT keywords are no longer being highlighted in the middle of function/variable/etc. names
 
