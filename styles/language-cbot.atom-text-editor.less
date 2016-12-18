@@ -2,17 +2,28 @@
 
 .source.cbot {
   .constant {
-      color: #000000;
-      .gradient(#ffffff, #E4C1BE);
+      color: #E12D2D;
   }
   .entity {
+    &.name.instruction {
+      color: #3D6E96;
+    }
     &.name.function {
-      color: #000000;
-      .gradient(#ffffff, #FEEBD2);
+      color: #7D612A;
+    }
+    &.this {
+      color: #8B549B;
     }
   }
   .storage.type {
-    color: #000000;
-    .gradient(#ffffff, #BEDCBE);
+    color: #4F7132;
+  }
+  .comment {
+    color: #40454E;
+  }
+  .value {
+    &.string {
+      color: #3D6257;
+    }
   }
 }

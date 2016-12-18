@@ -6,6 +6,8 @@
 'name': 'CBOT'
 'patterns': [
   { 'include': '#instruction' }
+  { 'include': '#function' }
+  { 'include': '#this' }
   { 'include': '#type' }
   { 'include': '#constant' }
   { 'include': '#escaped-char' }
@@ -16,8 +18,16 @@
 
 'repository':
   'instruction': {
-    'match': '\\b(if|else|for|while|do|break|continue|return|sizeof|sin|cos|tan|asin|acos|atan|atan2|sqrt|pow|rand|abs|floor|ceil|round|trunc|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|direction|distance|distance2d|space|flatspace|flatground|canbuild|canresearch|researched|buildingenabled|build|wait|move|turn|goto|grab|drop|sniff|receive|send|deleteinfo|testinfo|thump|recycle|shield|fire|antfire|aim|motor|jet|topo|message|abstime|strlen|strleft|strright|strmid|strval|strfind|strlower|strupper|open|close|writeln|readln|eof|deletefile|openfile|pendown|penup|pencolor|penwidth|extern|class|static|public|private|synchronized|new|this|switch|case|default|retobjectbyid|ismovie|ipf|camerafocus)\\b'
+    'match': '\\b(if|else|for|while|do|break|continue|return|extern|class|static|public|private|synchronized|new|switch|case|default)\\b'
+    'name': 'entity.name.instruction.cbot'
+  }
+  'function': {
+    'match': '\\b(sizeof|sin|cos|tan|asin|acos|atan|atan2|sqrt|pow|rand|abs|floor|ceil|round|trunc|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|direction|distance|distance2d|space|flatspace|flatground|canbuild|canresearch|researched|buildingenabled|build|wait|move|turn|goto|grab|drop|sniff|receive|send|deleteinfo|testinfo|thump|recycle|shield|fire|antfire|aim|motor|jet|topo|message|abstime|strlen|strleft|strright|strmid|strval|strfind|strlower|strupper|open|close|writeln|readln|eof|deletefile|openfile|pendown|penup|pencolor|penwidth|retobjectbyid|ismovie|ipf|camerafocus)\\b'
     'name': 'entity.name.function.cbot'
+  }
+  'this': {
+    'match': '\\b(this|super)\\b'
+    'name': 'entity.this.cbot'
   }
   'type': {
     'match': '\\b(void|int|float|bool(ean)?|string|point|object|file)\\b'
@@ -34,15 +44,15 @@
   'inline-comment': {
     'begin': '//'
     'end': '$'
-    'name': 'none.cbot'
+    'name': 'comment.inline.cbot'
   }
   'block-comment': {
     'begin': '/\\*'
     'end': '\\*/'
-    'name': 'none.cbot'
+    'name': 'comment.block.cbot'
   }
   'string': {
     'begin': '"'
     'end': '"'
-    'name': 'none.cbot'
+    'name': 'value.string.cbot'
   }
