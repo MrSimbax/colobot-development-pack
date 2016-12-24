@@ -1,3 +1,6 @@
+## 0.2.0 - New CBOT syntax highlighting
+* Update CBot highlighting to match new colors in in-game editor (issue #5)
+
 ## 0.1.3 - Patch syntax highlighting
 * Add new #Include keyword
 * Fix type=Quartz not being highlighted
