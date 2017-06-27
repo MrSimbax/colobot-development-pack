@@ -18,11 +18,33 @@
 
 'repository':
   'instruction': {
-    'match': '\\b(if|else|for|while|do|break|continue|return|extern|class|static|public|private|synchronized|new|switch|case|default)\\b'
+    'match': '''
+        (?x)\\b(
+              if|else|for|while|do|break|continue|return|
+              extern|class|static|public|private|synchronized|new|
+              switch|case|default
+            )\\b
+    '''
     'name': 'entity.name.instruction.cbot'
   }
   'function': {
-    'match': '\\b(sizeof|sin|cos|tan|asin|acos|atan|atan2|sqrt|pow|rand|abs|floor|ceil|round|trunc|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|direction|distance|distance2d|space|flatspace|flatground|canbuild|canresearch|researched|buildingenabled|build|wait|move|turn|goto|grab|drop|sniff|receive|send|deleteinfo|testinfo|thump|recycle|shield|fire|antfire|aim|motor|jet|topo|message|abstime|strlen|strleft|strright|strmid|strval|strfind|strlower|strupper|open|close|writeln|readln|eof|deletefile|openfile|pendown|penup|pencolor|penwidth|retobjectbyid|ismovie|ipf|camerafocus)\\b'
+    'match': '''
+        (?x)\\b(
+              sin|cos|tan|asin|acos|atan|atan2|
+              sqrt|pow|rand|abs|floor|ceil|round|trunc|
+              sizeof|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|
+              direction|distance|distance2d|space|flatspace|flatground|
+              canbuild|canresearch|researched|buildingenabled|build|
+              wait|move|turn|goto|grab|drop|
+              sniff|receive|send|deleteinfo|testinfo|
+              thump|recycle|shield|fire|antfire|aim|motor|jet|
+              topo|message|abstime|
+              strlen|strleft|strright|strmid|strval|strfind|strlower|strupper|
+              open|close|writeln|readln|eof|deletefile|openfile|
+              pendown|penup|pencolor|penwidth|
+              retobjectbyid|ismovie|ipf|camerafocus
+            )\\b
+    '''
     'name': 'entity.name.function.cbot'
   }
   'this': {
@@ -34,7 +56,64 @@
     'name': 'storage.type.cbot'
   }
   'constant': {
-    'match': '\\b(Portico|SpaceShip|Derrick|BotFactory|PowerStation|Converter|RepairCenter|Destroyer|DefenseTower|AlienNest|ResearchCenter|RadarStation|ExchangePost|PowerPlant|AutoLab|NuclearPlant|PowerCaptor|Vault|Houston|Target1|Target2|StartArea|GoalArea|TitaniumOre|UraniumOre|Titanium|PowerCell|NuclearCell|OrgaMatter|BlackBox|KeyA|KeyB|KeyC|KeyD|TNT|Scrap|Mine|Barrier|WayPoint|BlueFlag|RedFlag|GreenFlag|YellowFlag|VioletFlag|PowerSpot|TitaniumSpot|UraniumSpot|KeyASpot|KeyBSpot|KeyCSpot|KeyDSpot|PracticeBot|(Wheeled|Tracked|Winged|Legged)(Grabber|Shooter|OrgaShooter|Sniffer)|PhazerShooter|Thumper|Recycler|Shielder|Subber|TargetBot|Scribbler|Me|Alien(Queen|Egg|Ant|Spider|Wasp|Worm)|Wreck|FuelCell(Plant)?|Platinum(Ore|Spot)|InFront|Behind|EnergyCell|Display(Error|Warning|Info|Message)|Filter(None|OnlyLanding|OnlyFlying|Friendly|Enemy|Neutral)|Explosion(None|Bang|Burn|Water)|Result(NotEnded|Lost|LostQuick|Win)|Build(BotFactory|Derrick|Converter|RadarStation|PowerPlant|NuclearPlant|PowerStation|RepairCenter|DefenseTower|ResearchCenter|AutoLab|PowerCaptor|ExchangePost|Destroyer)|FlatGround|UseFlags|Research(Tracked|Winged|Shooter|DefenseTower|NuclearPlant|Thumper|Shielder|PhazerShooter|Legged|OrgaShooter|Recycler|Subber|Sniffer)|PolskiPortalColobota|Any|null|true|false|nan)\\b'
+    'match': '''
+        (?x)\\b(
+          (?# Language keywords)
+            true|false|null|nan|
+          (?# Buildings)
+            Portico|SpaceShip|
+            Derrick|Converter|
+            (?# Buildable by player)
+              Build(
+                Derrick|Converter|
+                (Nuclear|Power)Plant|
+                BotFactory|PowerStation|RepairCenter|
+                ResearchCenter|AutoLab|
+                Destroyer|DefenseTower|PowerCaptor|
+                RadarStation|ExchangePost
+              )|
+            Vault|Houston|Target(1|2)|(Start|Goal)Area|Barrier|
+            AlienNest|
+          (?# Resources)
+            Titanium(Ore)?|UraniumOre|
+            (Power|Nuclear)Cell|
+          (?# Gameplay objects)
+            OrgaMatter|BlackBox|Key(A|B|C|D)|TNT|Scrap|Mine|
+            (Blue|Red|Green|Yellow|Violet)Flag|
+            (Power|Titanium|Uranium|Key(A|B|C|D))Spot|
+            WayPoint|
+          (?# Robots)
+            PracticeBot|TargetBot|Scribbler|
+            (Wheeled|Tracked|Winged|Legged)(Grabber|Shooter|OrgaShooter|Sniffer)|
+            PhazerShooter|Thumper|Recycler|Shielder|Subber|
+          (?# Aliens)
+            Me|
+            Alien(Queen|Egg|Ant|Spider|Wasp|Worm)|
+          (?# Other object-related)
+            Wreck|FuelCell(Plant)?|Platinum(Ore|Spot)|
+          (?# Grab/drop positions)
+            InFront|Behind|EnergyCell|
+          (?# Message types)
+            Display(Error|Warning|Info|Message)|
+          (?# Radar filters)
+            Filter(None|OnlyLanding|OnlyFlying|Friendly|Enemy|Neutral)|Any|
+          (?# Damage types)
+            Explosion(None|Bang|Burn|Water)|
+          (?# Statuses)
+            Result(NotEnded|Lost|LostQuick|Win)|
+          (?# Other)
+            FlatGround|UseFlags|
+          (?# Research types)
+            Research(
+              Tracked|Winged|Legged|
+              (Orga|Phazer)Shooter|
+              Thumper|Shielder|Recycler|Subber|Sniffer|
+              DefenseTower|NuclearPlant|
+            )|
+          (?# Easter eggs)
+            PolskiPortalColobota
+        )\\b
+    '''
     'name': 'constant.cbot'
   }
   'escaped-char': {
