@@ -14,6 +14,7 @@
   { 'include': '#inline-comment' }
   { 'include': '#block-comment' }
   { 'include': '#string' }
+  { 'include': '#number' }
 ]
 
 'repository':
@@ -134,4 +135,8 @@
     'begin': '"'
     'end': '"'
     'name': 'value.string.cbot'
+  }
+  'number': {
+      'match': '\\b(0x[0-9A-Fa-f]*|[0-9]+\\.?[0-9]*)'
+      'name': 'value.numeric.scene'
   }
