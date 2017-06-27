@@ -2,7 +2,7 @@
 'fileTypes': [
   'scene'
 ]
-'firstLineMatch': '^Title.* text=".+".*$'
+#'firstLineMatch': '^Title.* text=".+".*$'
 'name': 'Colobot scene'
 'patterns': [
   { 'include': '#command' }

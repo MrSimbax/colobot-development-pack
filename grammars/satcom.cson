@@ -2,7 +2,7 @@
 'fileTypes': [
   'satcom'
 ]
-'firstLineMatch': '^\\\\b;.+$'
+#'firstLineMatch': '^\\\\b;.+$'
 'name': 'SatCom'
 'patterns': [
   { 'include': '#escaped-char' }

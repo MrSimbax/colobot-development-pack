@@ -2,7 +2,7 @@
 'fileTypes': [
   'cbot'
 ]
-'firstLineMatch': '^extern void object::.+(.*).*$'
+#'firstLineMatch': '^extern void object::.+(.*).*$'
 'name': 'CBOT'
 'patterns': [
   { 'include': '#instruction' }
