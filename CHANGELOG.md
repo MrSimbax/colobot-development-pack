@@ -1,3 +1,9 @@
+## 0.2.1 - Minor fixes and improvements
+* Fix 'deprecated' selectors (issue #7)
+* Add number syntax highlighting to CBOT
+* Make regexes more readable
+* Remove first line matches as they don't work anyway because Atom strongly prefers file types to match grammar
+
 ## 0.2.0 - New CBOT syntax highlighting
 * Update CBot highlighting to match new colors in in-game editor (issue #5)
 
