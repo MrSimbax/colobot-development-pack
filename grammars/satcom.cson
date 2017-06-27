@@ -133,7 +133,13 @@
     'name': 'meta.separator.satcom'
   }
   'keyboard-key': {
-    'match': '\\\\key (Left|Right|Up|Down|Gup|Gdown|Camera|Desel|Action|Near|Away|Next|Human|Quit|Help|Prog|Cbot|Visit|speed10|speed15|speed20);'
+    'match': '''\\\\key (?xi)\\b(?:
+          Left|Right|Up|Down|
+          Gup|Gdown|
+          Camera|Desel|Action|Near|Away|Next|Human|Quit|Help|Prog|Cbot|Visit|
+          speed10|speed15|speed20
+        );
+    '''
     'name': 'string.satcom'
   }
   'button': {
