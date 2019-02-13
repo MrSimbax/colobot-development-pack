@@ -1,3 +1,6 @@
+## 0.2.2 - Merged pull request
+* Add CBOT radarall function highlight
+
 ## 0.2.1 - Minor fixes and improvements
 * Fix 'deprecated' selectors (issue #7)
 * Add number syntax highlighting to CBOT
