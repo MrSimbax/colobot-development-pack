@@ -33,7 +33,7 @@
         (?x)\\b(
               sin|cos|tan|asin|acos|atan|atan2|
               sqrt|pow|rand|abs|floor|ceil|round|trunc|
-              sizeof|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|
+              sizeof|retobject|errmode|busy|takeoff|research|factory|destroy|search|radar|radarall|
               direction|distance|distance2d|space|flatspace|flatground|
               canbuild|canresearch|researched|buildingenabled|build|
               wait|move|turn|goto|grab|drop|
